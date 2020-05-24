@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update good</title>
+</head>
+<body>
+<form action="#" th:action="@{/good-update}" th:object="${good}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="type">Type</label>
+    <input type="text" th:field="*{type}" id="type" placeholder="Type">
+    <br/>
+    <label for="shopId">Shop id</label>
+    <input type="text" th:field="*{shopId}" id="shopId" placeholder="Shop Id">
+    <br/>
+    <label for="quantity">Quantity</label>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="Quantity">
+    <br/>
+    <input type="submit" value="Update Good">
+</form>
+</body>
+</html>

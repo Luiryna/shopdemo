@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Goods</title>
+</head>
+<body>
+<div th:switch="${goods}">
+    <h2 th:case="null">No good found!</h2>
+    <div th:case="*">
+        <h2>Goods</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Shop id</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="good : ${goods}">
+                <td th:text="${good.id}"></td>
+                <td th:text="${good.type}"></td>
+                <td th:text="${good.shopId}"></td>
+                <td th:text="${good.quantity}"></td>
+                <td><a th:href="@{good-update/{id}(id=${good.id})}">Edit</a></td>
+                <td><a th:href="@{good-delete/{id}(id=${good.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/good-create">Create good</a></p>
+</div>
+</body>
+</html>

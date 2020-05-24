@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops</title>
+</head>
+<body>
+<div th:switch="${shops}">
+    <h2 th:case="null">No shop found!</h2>
+    <div th:case="*">
+        <h2>Shops</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="shop : ${shops}">
+                <td th:text="${shop.id}"></td>
+                <td th:text="${shop.name}"></td>
+                <td th:text="${shop.address}"></td>
+                <td><a th:href="@{shop-update/{id}(id=${shop.id})}">Edit</a></td>
+                <td><a th:href="@{shop-delete/{id}(id=${shop.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/shop-create">Create price</a></p>
+</div>
+</body>
+</html>
