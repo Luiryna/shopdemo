@@ -1,9 +1,9 @@
 package by.bsuir.lukashevich.shopdemo.controller;
 
-import by.bsuir.lukashevich.shopdemo.model.Good;
 import by.bsuir.lukashevich.shopdemo.model.Price;
-import by.bsuir.lukashevich.shopdemo.service.GoodService;
 import by.bsuir.lukashevich.shopdemo.service.PriceService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ import java.util.List;
 
 @Controller
 public class PriceController {
+    Logger logger = LoggerFactory.getLogger(PriceController.class);
     private final PriceService priceService;
 
     @Autowired
@@ -37,12 +38,14 @@ public class PriceController {
     @PostMapping("/price-create")
     public String createPrice(Price price){
         priceService.savePrice(price);
+        logger.info("Price has been created: " + price.toString());
         return "redirect:/prices";
     }
 
     @GetMapping("/price-delete/{id}")
     public String deletePrice(@PathVariable("id") Long id){
         priceService.deleteById(id);
+        logger.info("Price has been deleted. Id: " + id);
         return "redirect:/prices";
     }
 
@@ -55,6 +58,7 @@ public class PriceController {
     @PostMapping("/price-update")
     public String updatePrice(Price price){
         priceService.savePrice(price);
+        logger.info("Price has been updated: " + price.toString());
         return "redirect:/prices";
     }
 
