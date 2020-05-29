@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops</title>
+</head>
+<body>
+<div th:switch="${stocks}">
+    <h2 th:case="null">No stock found!</h2>
+    <div th:case="*">
+        <h2>Stocks</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Shop ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="stock : ${stocks}">
+                <td th:text="${stock.id}"></td>
+                <td th:text="${stock.shopId}"></td>
+                <td><a th:href="@{stock-update/{id}(id=${stock.id})}">Edit</a></td>
+                <td><a th:href="@{stock-delete/{id}(id=${stock.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/stock-create">Create Stock</a></p>
+</div>
+</body>

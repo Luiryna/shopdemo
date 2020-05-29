@@ -6,13 +6,9 @@
 </head>
 <body>
 <form action="#" th:action="@{/good-create}" th:object="${good}" method="post">
-    <label for="type">Type</label>
-    <input type="text" th:field="*{type}" id="type" placeholder="Type">
-    <label for="shopId">Shop id</label>
-    <input type="text" th:field="*{shopId}" id="shopId" placeholder="Shop Id">
-    <label for="quantity">Quantity</label>
-    <input type="text" th:field="*{quantity}" id="quantity" placeholder="Quantity">
-    <input type="submit" value="Create Employee">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <input type="submit" value="Create Good">
 </form>
 </body>
 </html>

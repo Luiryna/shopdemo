@@ -11,10 +11,6 @@ public class Good {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "type")
-    private String type;
-    @Column(name = "shop_id")
-    private int shopId;
-    @Column(name = "quantity")
-    private int quantity;
+    @Column(name = "name")
+    private String name;
 }

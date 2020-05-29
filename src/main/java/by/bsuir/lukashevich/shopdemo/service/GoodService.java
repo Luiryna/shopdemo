@@ -1,8 +1,6 @@
 package by.bsuir.lukashevich.shopdemo.service;
 
-import by.bsuir.lukashevich.shopdemo.model.Employee;
 import by.bsuir.lukashevich.shopdemo.model.Good;
-import by.bsuir.lukashevich.shopdemo.repositary.EmployeeRepositary;
 import by.bsuir.lukashevich.shopdemo.repositary.GoodRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Goods in Stock</title>
+</head>
+<body>
+<div th:switch="${goodsinstocks}">
+    <h2 th:case="null">No good found!</h2>
+    <div th:case="*">
+        <h2>Goods in Stock</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Stock ID</th>
+                <th>Good ID</th>
+                <th>Price</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="goodsinstock : ${goodsinstocks}">
+                <td th:text="${goodsinstock.stockId}"></td>
+                <td th:text="${goodsinstock.goodId}"></td>
+                <td th:text="${goodsinstock.price}"></td>
+                <td th:text="${goodsinstock.value}"></td>
+                <td><a th:href="@{good-update/{id}(id=${goodsinstock.id})}">Edit</a></td>
+                <td><a th:href="@{good-delete/{id}(id=${goodsinstock.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/good-create">Create good in stock</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create stock</title>
+</head>
+<body>
+<form action="#" th:action="@{/stock-create}" th:object="${stock}" method="post">
+    <label for="shopId">Shop ID</label>
+    <input type="text" th:field="*{shopId}" id="shopId" placeholder="Shop ID">
+    <input type="submit" value="Create Stock">
+</form>
+</body>
+</html>
