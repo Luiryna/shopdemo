@@ -31,7 +31,8 @@ public class GoodsInStockController {
     }
 
     @GetMapping("/goodsinstock-create")
-    public String createGoodsInStockForm(GoodsInStock goodsInStock) {
+    public String createGoodsInStockForm(GoodsInStock goodsInStock, Model model) {
+        model.addAttribute("goodsinstock", new GoodsInStock());
         return "goodsinstock-create";
     }
 
